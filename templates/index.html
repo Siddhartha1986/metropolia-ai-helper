@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Metropolia Nursing AI Helper{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-10">
+    <div class="card shadow-sm">
+      <div class="card-body">
+
+        <!-- Main title + subtitle (hero section) -->
+        <h1 class="hero-title mb-2">Metropolia Nursing AI Helper</h1>
+        <p class="hero-subtitle mb-3">
+          Small demo app for Metropolia AI project: combines a Finnish–English
+          nursing vocabulary helper with an AI-based text summarizer.
+        </p>
+
+        <hr class="my-3">
+
+        <!-- Two feature cards: left = Nursing terms, right = Summarizer -->
+        <div class="row gy-3">
+          <!-- Nursing Finnish Language Helper -->
+          <div class="col-md-6">
+            <div class="p-3 border bg-light feature-card h-100">
+              <div class="d-flex align-items-center mb-2">
+                <!-- Icon bubble -->
+                <div class="feature-icon feature-icon-left me-2">
+                  🩺
+                </div>
+                <h5 class="mb-0">Nursing Finnish Language Helper</h5>
+              </div>
+
+              <p class="mb-3">
+                Search nursing terms in Finnish or English and see bilingual
+                explanations plus clinical examples.
+              </p>
+
+              <!-- Primary button (full width on card) -->
+              <a href="{{ url_for('nurse_helper') }}" class="btn btn-primary w-100">
+                Open Nursing Terms Tool
+              </a>
+            </div>
+          </div>
+
+          <!-- Nursing Text Summarizer -->
+          <div class="col-md-6">
+            <div class="p-3 border bg-light feature-card h-100">
+              <div class="d-flex align-items-center mb-2">
+                <!-- Icon bubble -->
+                <div class="feature-icon feature-icon-right me-2">
+                  📝
+                </div>
+                <h5 class="mb-0">Nursing Text Summarizer</h5>
+              </div>
+
+              <p class="mb-3">
+                Paste patient notes or study text and get a short summary
+                generated via HuggingFace’s BART model.
+              </p>
+
+              <!-- Same style button so both sides feel consistent -->
+              <a href="{{ url_for('summarize') }}" class="btn btn-primary w-100">
+                Open Summarizer
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>  <!-- /.card-body -->
+    </div>    <!-- /.card -->
+  </div>      <!-- /.col -->
+</div>        <!-- /.row -->
+{% endblock %}

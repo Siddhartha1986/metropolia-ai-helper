@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Nursing Text Summarizer{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-9">
+    <div class="card shadow-sm">
+      <div class="card-body">
+
+        <!-- Page title -->
+        <h1 class="card-title mb-3">Nursing Text Summarizer</h1>
+
+        <!-- Back to main home page -->
+        <p>
+          <a href="{{ url_for('index') }}" class="btn btn-outline-secondary btn-sm mt-2">
+            ← Back to Home
+          </a>
+        </p>
+
+        <!-- Instructions for the user -->
+        <p>
+          Liitä potilaskertomus, oppimisteksti tai muu hoitotyön teksti alle.<br>
+          <span class="text-muted">
+            Paste any nursing-related text below to get a short summary.
+          </span>
+        </p>
+
+        <!-- Summarization Form -->
+        <form method="POST" class="mb-3">
+          <textarea
+            name="text"
+            rows="7"
+            class="form-control"
+            placeholder="Paste your text here..."
+            required
+          >{{ original }}</textarea>
+
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-primary">Summarize</button>
+          </div>
+        </form>
+
+        <!-- ERROR handling -->
+        {% if error %}
+          <div class="alert alert-danger">
+            <strong>Error</strong><br>
+            {{ error }}
+          </div>
+        {% endif %}
+
+        <!-- SUCCESS: Show summary -->
+        {% if summary %}
+          <hr>
+          <h3>Summary</h3>
+          <p>{{ summary }}</p>
+        {% endif %}
+
+      </div>  <!-- end card-body -->
+    </div>    <!-- end card -->
+  </div>      <!-- end col -->
+</div>        <!-- end row -->
+{% endblock %}
