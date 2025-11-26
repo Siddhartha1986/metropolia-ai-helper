@@ -124,7 +124,7 @@ metropolia-ai-helper/
 
 ---
 
-# 🔗 Related Projects (Your Internship Projects)
+# 🔗 Related Projects (Internship Projects)
 
 ## 📌 Image Classification Pipeline Using Cloud Functions
 
